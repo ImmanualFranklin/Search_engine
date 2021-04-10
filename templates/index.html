@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Search Products{% endblock %}
+{% block body %}
+    <form action="{% url 'data_management:search_data' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="exampleFormControlSelect1" style="font-weight: bold;">Key Words</label>
+             <input  type="text" value="" placeholder = "Search " name ="search" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Go</button>
+    </form>
+    <hr>
+    <h3>Products</h3>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <td>{{product.id}}</td>
+                <td>{{product.name}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
