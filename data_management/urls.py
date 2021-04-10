@@ -6,8 +6,8 @@ from data_management.views import *
 app_name = "data_management"
 
 urlpatterns = [
-
-	path('',search_data, name="search_data"),
+	path('search',index, name="index"),
+	path('search-data',search_data, name="search_data"),
 
 
 ]
