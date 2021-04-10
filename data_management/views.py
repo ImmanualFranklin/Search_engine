@@ -15,7 +15,7 @@ def search_data(request):
 def index(request):
     if request.is_ajax():
         q = request.GET.get('term', '').capitalize()
-        search_qs = Product.objects.filter(name__startswith=q)
+        search_qs = Product.objects.filter(name__startswith=q)[:20]
         results = []
         for r in search_qs:
             results.append(r.name)
